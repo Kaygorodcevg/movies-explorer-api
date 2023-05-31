@@ -13,7 +13,7 @@ const limiter = require('./middlewares/limiter');
 const { DEV_PORT, DATABASE } = require('./utils/config');
 
 const app = express();
-const { PORT } = process.env;
+const { PORT = 3005 } = process.env;
 
 mongoose.connect(DATABASE);
 
@@ -38,6 +38,4 @@ app.use(errorLogger);
 app.use(validationErrors());
 app.use(err);
 
-app.listen(PORT || DEV_PORT, () => {
-  console.log(`App listening on port ${PORT || DEV_PORT}`);
-});
+app.listen(PORT || DEV_PORT);
