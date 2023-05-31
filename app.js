@@ -23,7 +23,7 @@ app.use(helmet());
 app.use(limiter);
 app.use(cors(
   {
-    origin: ['localhost:3001', 'http://localhost:3005'],
+    origin: ['http://movie.project.nomoredomains.rocks', 'https://movie.project.nomoredomains.rocks', 'http://localhost:3001', 'http://localhost:3005'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
