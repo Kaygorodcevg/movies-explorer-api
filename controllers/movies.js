@@ -3,7 +3,8 @@ const { CREATED } = require('../utils/errors');
 const ForbiddenError = require('../utils/ForbiddenError');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({})
+  Movie.find({ owner: req.user._id })
+    .orFail()
     .then((cards) => res.send(cards))
     .catch(next);
 };
@@ -47,7 +48,7 @@ module.exports.deleteMovie = (req, res, next) => {
       if (card.owner.toString() === req.user._id) {
         Movie.deleteOne(card._id)
           .orFail()
-          .then((cardData) => res.send(cardData))
+          .then(res.send({ message: 'Фильм удалён' }))
           .catch(next);
       } else {
         next(new ForbiddenError());

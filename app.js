@@ -15,7 +15,7 @@ const { DEV_PORT, DATABASE } = require('./utils/config');
 const app = express();
 const { PORT = 3005 } = process.env;
 
-mongoose.connect(DATABASE);
+mongoose.connect(DATABASE || 'mongodb://localhost:27017/bitfilmsdb');
 
 app.use(express.json());
 app.use(cookieParser());

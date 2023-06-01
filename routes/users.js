@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const {
-  signOut,
   getUserInfo,
   updateUser,
+  signOut,
 } = require('../controllers/users');
 const { updateUserInfo } = require('../middlewares/validation');
 

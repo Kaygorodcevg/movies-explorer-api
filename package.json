@@ -1,7 +1,7 @@
 {
   "name": "movies-explorer-api",
   "version": "1.0.0",
-  "description": "[**Movies-explorer**](https://) (открыть проект в браузере)",
+  "description": "Movies-explorer",
   "main": "app.js",
   "scripts": {
     "lint": "npx eslint ./",
